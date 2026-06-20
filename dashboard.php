@@ -309,13 +309,13 @@ $recent_mhs = mysqli_query($koneksi, "SELECT * FROM mahasiswa ORDER BY id DESC L
     </div>
     <ul class="sidebar-menu">
         <li class="sidebar-menu-item">
-            <a href="dashboard.php" class="sidebar-link active">
+            <a href="/dashboard.php" class="sidebar-link active">
                 <i class="bi bi-grid-1x2-fill"></i>
                 <span>Dashboard</span>
             </a>
         </li>
         <li class="sidebar-menu-item">
-            <a href="mahasiswa/index.php" class="sidebar-link">
+            <a href="/mahasiswa/index.php" class="sidebar-link">
                 <i class="bi bi-people-fill"></i>
                 <span>Data Mahasiswa</span>
             </a>
@@ -332,7 +332,7 @@ $recent_mhs = mysqli_query($koneksi, "SELECT * FROM mahasiswa ORDER BY id DESC L
                 <small class="text-muted" style="font-size: 11px;">Administrator</small>
             </div>
         </div>
-        <a href="auth/logout.php" class="btn btn-outline-danger btn-sm w-100 py-2 d-flex align-items-center justify-content-center gap-2">
+        <a href="/auth/logout.php" class="btn btn-outline-danger btn-sm w-100 py-2 d-flex align-items-center justify-content-center gap-2">
             <i class="bi bi-box-arrow-right"></i>
             <span>Log Keluar</span>
         </a>
