@@ -2,7 +2,7 @@
 include '../config/koneksi.php';
 // Redirect if not logged in
 if (!isset($_SESSION['login'])) {
-    header('Location: ../auth/login.php');
+    header('Location: ../login.php');
     exit;
 }
 
@@ -489,15 +489,33 @@ $jurusan_list_query = mysqli_query($koneksi, "SELECT DISTINCT jurusan FROM mahas
     </div>
     <ul class="sidebar-menu">
         <li class="sidebar-menu-item">
-            <a href="/dashboard.php" class="sidebar-link">
+            <a href="../dashboard.php" class="sidebar-link">
                 <i class="bi bi-grid-1x2-fill"></i>
                 <span>Dashboard</span>
             </a>
         </li>
         <li class="sidebar-menu-item">
-            <a href="/mahasiswa/index.php" class="sidebar-link active">
+            <a href="index.php" class="sidebar-link active">
                 <i class="bi bi-people-fill"></i>
                 <span>Data Mahasiswa</span>
+            </a>
+        </li>
+        <li class="sidebar-menu-item">
+            <a href="../mata-kuliah/index.php" class="sidebar-link">
+                <i class="bi bi-book-fill"></i>
+                <span>Mata Kuliah</span>
+            </a>
+        </li>
+        <li class="sidebar-menu-item">
+            <a href="../nilai/index.php" class="sidebar-link">
+                <i class="bi bi-journal-bookmark-fill"></i>
+                <span>Nilai Mahasiswa</span>
+            </a>
+        </li>
+        <li class="sidebar-menu-item">
+            <a href="../administrasi/index.php" class="sidebar-link">
+                <i class="bi bi-cash-coin"></i>
+                <span>Administrasi</span>
             </a>
         </li>
     </ul>
@@ -512,7 +530,7 @@ $jurusan_list_query = mysqli_query($koneksi, "SELECT DISTINCT jurusan FROM mahas
                 <small class="text-muted" style="font-size: 11px;">Administrator</small>
             </div>
         </div>
-        <a href="/auth/logout.php" class="btn btn-outline-danger btn-sm w-100 py-2 d-flex align-items-center justify-content-center gap-2">
+        <a href="../logout.php" class="btn btn-outline-danger btn-sm w-100 py-2 d-flex align-items-center justify-content-center gap-2">
             <i class="bi bi-box-arrow-right"></i>
             <span>Log Keluar</span>
         </a>

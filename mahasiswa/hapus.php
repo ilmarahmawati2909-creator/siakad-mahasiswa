@@ -2,7 +2,7 @@
 include '../config/koneksi.php';
 // Redirect if not logged in
 if (!isset($_SESSION['login'])) {
-    header('Location: ../auth/login.php');
+    header('Location: ../login.php');
     exit;
 }
 

@@ -1,1 +1,1 @@
-<?php header('Location: auth/login.php'); ?>
+<?php header('Location: login.php'); ?>

@@ -1,9 +1,9 @@
 <?php
-include '../config/koneksi.php';
+include 'config/koneksi.php';
 
 // Redirect if already logged in
 if (isset($_SESSION['login'])) {
-    header('Location: ../dashboard.php');
+    header('Location: dashboard.php');
     exit;
 }
 
@@ -25,7 +25,7 @@ if (isset($_POST['login'])) {
                 $_SESSION['login'] = true;
                 $_SESSION['nama'] = $user['nama'];
                 $_SESSION['username'] = $user['username'];
-                header('Location: ../dashboard.php');
+                header('Location: dashboard.php');
                 exit;
             }
         }

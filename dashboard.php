@@ -3,7 +3,7 @@ include 'config/koneksi.php';
 
 // Check login
 if (!isset($_SESSION['login'])) {
-    header('Location: auth/login.php');
+    header('Location: login.php');
     exit;
 }
 
@@ -32,7 +32,15 @@ while ($row = mysqli_fetch_assoc($chart_query)) {
 }
 
 // Fetch recent 5 students
+// Fetch recent 5 students
 $recent_mhs = mysqli_query($koneksi, "SELECT * FROM mahasiswa ORDER BY id DESC LIMIT 5");
+
+// Fetch Financial Statistics
+$fin_query = mysqli_query($koneksi, "SELECT SUM(nominal) as total_tagihan, SUM(jumlah_bayar) as total_terbayar FROM administrasi");
+$fin_data = mysqli_fetch_assoc($fin_query);
+$total_tagihan = $fin_data['total_tagihan'] ?? 0;
+$total_terbayar = $fin_data['total_terbayar'] ?? 0;
+$total_tunggakan = $total_tagihan - $total_terbayar;
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -202,7 +210,7 @@ $recent_mhs = mysqli_query($koneksi, "SELECT * FROM mahasiswa ORDER BY id DESC L
         .stat-icon-pink { background-color: rgba(236, 72, 153, 0.1); color: #ec4899; }
 
         .stat-number {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 700;
             color: #1e293b;
             margin-bottom: 2px;
@@ -309,15 +317,33 @@ $recent_mhs = mysqli_query($koneksi, "SELECT * FROM mahasiswa ORDER BY id DESC L
     </div>
     <ul class="sidebar-menu">
         <li class="sidebar-menu-item">
-            <a href="/dashboard.php" class="sidebar-link active">
+            <a href="dashboard.php" class="sidebar-link active">
                 <i class="bi bi-grid-1x2-fill"></i>
                 <span>Dashboard</span>
             </a>
         </li>
         <li class="sidebar-menu-item">
-            <a href="/mahasiswa/index.php" class="sidebar-link">
+            <a href="mahasiswa/index.php" class="sidebar-link">
                 <i class="bi bi-people-fill"></i>
                 <span>Data Mahasiswa</span>
+            </a>
+        </li>
+        <li class="sidebar-menu-item">
+            <a href="mata-kuliah/index.php" class="sidebar-link">
+                <i class="bi bi-book-fill"></i>
+                <span>Mata Kuliah</span>
+            </a>
+        </li>
+        <li class="sidebar-menu-item">
+            <a href="nilai/index.php" class="sidebar-link">
+                <i class="bi bi-journal-bookmark-fill"></i>
+                <span>Nilai Mahasiswa</span>
+            </a>
+        </li>
+        <li class="sidebar-menu-item">
+            <a href="administrasi/index.php" class="sidebar-link">
+                <i class="bi bi-cash-coin"></i>
+                <span>Administrasi</span>
             </a>
         </li>
     </ul>
@@ -332,7 +358,7 @@ $recent_mhs = mysqli_query($koneksi, "SELECT * FROM mahasiswa ORDER BY id DESC L
                 <small class="text-muted" style="font-size: 11px;">Administrator</small>
             </div>
         </div>
-        <a href="/auth/logout.php" class="btn btn-outline-danger btn-sm w-100 py-2 d-flex align-items-center justify-content-center gap-2">
+        <a href="logout.php" class="btn btn-outline-danger btn-sm w-100 py-2 d-flex align-items-center justify-content-center gap-2">
             <i class="bi bi-box-arrow-right"></i>
             <span>Log Keluar</span>
         </a>
@@ -404,6 +430,46 @@ $recent_mhs = mysqli_query($koneksi, "SELECT * FROM mahasiswa ORDER BY id DESC L
                 </div>
                 <div class="stat-icon stat-icon-pink">
                     <i class="bi bi-gender-female"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Financial Statistics Row -->
+    <div class="row g-4 mb-4">
+        <!-- Total Tagihan -->
+        <div class="col-sm-6 col-xl-4">
+            <div class="stat-card" style="border-left: 4px solid var(--primary-color);">
+                <div>
+                    <h3 class="stat-number">Rp <?= number_format($total_tagihan, 0, ',', '.') ?></h3>
+                    <div class="stat-label">Total Tagihan Keuangan</div>
+                </div>
+                <div class="stat-icon stat-icon-blue">
+                    <i class="bi bi-wallet2"></i>
+                </div>
+            </div>
+        </div>
+        <!-- Total Terbayar -->
+        <div class="col-sm-6 col-xl-4">
+            <div class="stat-card" style="border-left: 4px solid #10b981;">
+                <div>
+                    <h3 class="stat-number">Rp <?= number_format($total_terbayar, 0, ',', '.') ?></h3>
+                    <div class="stat-label">Total Pembayaran Diterima</div>
+                </div>
+                <div class="stat-icon stat-icon-green">
+                    <i class="bi bi-cash-stack"></i>
+                </div>
+            </div>
+        </div>
+        <!-- Total Tunggakan -->
+        <div class="col-sm-6 col-xl-4">
+            <div class="stat-card" style="border-left: 4px solid #ef4444;">
+                <div>
+                    <h3 class="stat-number">Rp <?= number_format($total_tunggakan, 0, ',', '.') ?></h3>
+                    <div class="stat-label">Total Piutang / Tunggakan</div>
+                </div>
+                <div class="stat-icon stat-icon-pink" style="background-color: rgba(239, 68, 68, 0.1); color: #ef4444;">
+                    <i class="bi bi-exclamation-octagon"></i>
                 </div>
             </div>
         </div>
