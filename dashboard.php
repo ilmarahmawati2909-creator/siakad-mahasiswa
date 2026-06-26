@@ -524,9 +524,9 @@ $total_tunggakan = $total_tagihan - $total_terbayar;
                                         <td>
                                             <div class="d-flex align-items-center gap-3">
                                                 <?php if (!empty($mhs['foto']) && file_exists('mahasiswa/uploads/' . $mhs['foto'])): ?>
-                                                    <img class="avatar-img" src="mahasiswa/uploads/<?= htmlspecialchars($mhs['foto']) ?>" alt="Avatar">
+                                                    <img class="avatar-img" src="mahasiswa/uploads/<?= htmlspecialchars($mhs['foto']) ?>" alt="Avatar" style="flex-shrink: 0; width: 36px; height: 36px;">
                                                 <?php else: ?>
-                                                    <div class="avatar-initial" style="width: 36px; height: 36px; font-size: 12px;">
+                                                    <div class="avatar-initial" style="width: 36px; height: 36px; font-size: 12px; flex-shrink: 0;">
                                                         <?= strtoupper(substr($mhs['nama'], 0, 1)) ?>
                                                     </div>
                                                 <?php endif; ?>

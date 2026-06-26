@@ -601,9 +601,9 @@ $sum_tunggakan = $sum_nominal - $sum_terbayar;
                                 <td>
                                     <div class="d-flex align-items-center gap-3">
                                         <?php if (!empty($d['foto']) && file_exists('../mahasiswa/uploads/' . $d['foto'])): ?>
-                                            <img class="avatar-img" src="../mahasiswa/uploads/<?= htmlspecialchars($d['foto']) ?>" alt="Foto Profil">
+                                            <img class="avatar-img" src="../mahasiswa/uploads/<?= htmlspecialchars($d['foto']) ?>" alt="Foto Profil" style="flex-shrink: 0; width: 40px; height: 40px;">
                                         <?php else: ?>
-                                            <div class="avatar-initial">
+                                            <div class="avatar-initial" style="flex-shrink: 0;">
                                                 <?= strtoupper(substr($d['nama'], 0, 1)) ?>
                                             </div>
                                         <?php endif; ?>

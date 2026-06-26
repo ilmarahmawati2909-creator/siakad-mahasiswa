@@ -421,9 +421,9 @@ if (count($params) > 0) {
                                 <td>
                                     <div class="d-flex align-items-center gap-3">
                                         <?php if (!empty($row['foto']) && file_exists('../mahasiswa/uploads/' . $row['foto'])): ?>
-                                            <img class="avatar-img" src="../mahasiswa/uploads/<?= htmlspecialchars($row['foto']) ?>" alt="Foto Profil">
+                                            <img class="avatar-img" src="../mahasiswa/uploads/<?= htmlspecialchars($row['foto']) ?>" alt="Foto Profil" style="flex-shrink: 0; width: 40px; height: 40px;">
                                         <?php else: ?>
-                                            <div class="avatar-initial">
+                                            <div class="avatar-initial" style="flex-shrink: 0;">
                                                 <?= strtoupper(substr($row['nama'], 0, 1)) ?>
                                             </div>
                                         <?php endif; ?>
