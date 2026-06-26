@@ -262,6 +262,7 @@ if (count($params) > 0) {
             justify-content: center;
             font-weight: 600;
             font-size: 15px;
+            flex-shrink: 0;
         }
 
         .avatar-img {
@@ -270,6 +271,7 @@ if (count($params) > 0) {
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid #e2e8f0;
+            flex-shrink: 0;
         }
 
         @media (max-width: 991px) {

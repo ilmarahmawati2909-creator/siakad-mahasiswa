@@ -284,6 +284,7 @@ $total_tunggakan = $total_tagihan - $total_terbayar;
             justify-content: center;
             font-weight: 600;
             font-size: 14px;
+            flex-shrink: 0;
         }
 
         .avatar-img {
@@ -291,6 +292,7 @@ $total_tunggakan = $total_tagihan - $total_terbayar;
             height: 36px;
             border-radius: 50%;
             object-fit: cover;
+            flex-shrink: 0;
         }
 
         /* Responsive sidebar */

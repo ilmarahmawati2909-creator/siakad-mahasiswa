@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS db_sekolah;
-USE db_sekolah;
+-- CREATE DATABASE IF NOT EXISTS db_sekolah;
+-- USE db_sekolah;
 
 -- Drop tables if they exist to allow clean migrations
 DROP TABLE IF EXISTS nilai;

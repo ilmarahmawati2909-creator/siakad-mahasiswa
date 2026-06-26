@@ -332,6 +332,7 @@ $jurusan_list_query = mysqli_query($koneksi, "SELECT DISTINCT jurusan FROM mahas
             justify-content: center;
             font-weight: 600;
             font-size: 15px;
+            flex-shrink: 0;
         }
 
         .avatar-img {
@@ -340,6 +341,7 @@ $jurusan_list_query = mysqli_query($koneksi, "SELECT DISTINCT jurusan FROM mahas
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid #e2e8f0;
+            flex-shrink: 0;
         }
 
         /* Pagination Design */

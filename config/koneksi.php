@@ -1,10 +1,15 @@
 <?php
+// Enable error reporting for debugging HTTP 500 error on hosting
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 if ($_SERVER['HTTP_HOST'] === 'localhost' || $_SERVER['HTTP_HOST'] === '127.0.0.1') {
     // Local (XAMPP)
     $koneksi = mysqli_connect("localhost", "root", "", "db_sekolah");
 } else {
     // Online (InfinityFree)
-    $koneksi = mysqli_connect("sql307.infinityfree.com", "if0_42227826", "ilmarhm29", "if0_42227826_db_sekolah");
+    $koneksi = mysqli_connect("sql307.infinityfree.com", "if0_42227826", "ilmarhm29", "if0_42227826_db_mahasiswa");
 }
 
 if (!$koneksi) {
